@@ -64,3 +64,10 @@ function findMinGrade(arr) {
 }
 let minGrade = findMinGrade(grades1);
 console.log("minimum grade1", minGrade);
+
+
+function findArrMin(arr) {
+  let 
+  
+}
+
