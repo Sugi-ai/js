@@ -1,8 +1,8 @@
-let student = {
-  name: "boldoo",
-  age: 20,
-  grade: 90,
-};
+// let student = {
+//   name: "boldoo",
+//   age: 20,
+//   grade: 90,
+// };
 
 // array of numbers
 let grades = [10, 20, 30, 100];
@@ -84,7 +84,7 @@ function findAdultAvg(arr) {
   let sum = 0;
   let adultAgeNumber = 0;
   for (i = 0; i < arr.length; i++) {
-    if (arr[i].age > 18) {
+    if (arr[i].age >= 18) {
       sum = sum + arr[i].age;
       adultAgeNumber++;
     }
@@ -112,15 +112,15 @@ console.log("bodlogo5", eregteiSuragch);
 
 //emegtei suragch niit suragchiin heden huwi baigaag tsootsdog function bich.
 
-function findFemaleStudent(arr, female) { 
+function findFemaleStudent(arr) {
   let femaleStudent = 0;
-  for (i=0; i< arr.length; i++) {
-    if (arr[i].gender == "female") {
+  for (i = 0; i < arr.length; i++) {
+    if (arr[i].gender === "female") {
       femaleStudent++;
     }
   }
-  return femaleStudent;
+  let percent = (femaleStudent / arr.length) * 100;
+  return percent;
 }
-let percentFemaleStudent = findFemaleStudent(student,"female");
+let percentFemaleStudent = findFemaleStudent(students);
 console.log("bodlogo6", percentFemaleStudent);
-
