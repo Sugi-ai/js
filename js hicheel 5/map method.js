@@ -37,7 +37,7 @@ let students = [
   {
     name: "dulma",
     age: 9,
-    grade: 11,
+    grade: 11, 
     gender: "female",
     balance: 12,
   },
@@ -50,7 +50,7 @@ let newStudents = students.map((student) => {
     grade: student.grade + 1,
   };
 });
-console.log(students);
+// console.log(students);
 console.log(newStudents);
 
 // filter
@@ -61,8 +61,8 @@ console.log(newStudents);
 const filtered = ages.filter((age) => {
   return age % 2 == 0;
 });
-console.log(ages);
-console.log(filtered);
+console.log("filter1",ages);
+console.log("filter2",filtered);
 
 // sort method
 // sort method function avna
