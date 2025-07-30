@@ -110,7 +110,7 @@ function findMaleStudent(arr, gender) {
 let eregteiSuragch = findMaleStudent(students, "male");
 console.log("bodlogo5", eregteiSuragch);
 
-//emegtei suragch niit suragchiin heden huwi baigaag tsootsdog function bich.
+//Bodlogo 6 emegtei suragch niit suragchiin heden huwi baigaag tsootsdog function bich.
 
 function findFemaleStudent(arr) {
   let femaleStudent = 0;
@@ -124,3 +124,5 @@ function findFemaleStudent(arr) {
 }
 let percentFemaleStudent = findFemaleStudent(students);
 console.log("bodlogo6", percentFemaleStudent);
+
+
