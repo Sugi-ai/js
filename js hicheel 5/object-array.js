@@ -117,6 +117,7 @@ function findFemaleStudent(arr) {
   for (i = 0; i < arr.length; i++) {
     if (arr[i].gender === "female") {
       femaleStudent++;
+      sum = sum/ arr.length. * 100;
     }
   }
   let percent = (femaleStudent / arr.length) * 100;
