@@ -151,10 +151,54 @@ console.log("Bodlogo3", sortAgeStudents(students));
 // Bodlogo #4
 // neg too ogonguut tuhain toonoos ih balanactei surgchdiig yalgaj ogoh function bich
 const filterByBalance = (students) => {
-  let;
+  let blnc = students.filter((student) => {
+    if (student.balance > 1000) {
+      return true;
+    } else {
+      return false;
+    }
+
+  });
+   return blnc
 };
-// bodlogo #5
+console.log ("bodlogo4", filterByBalance(students));
+
+
+// // bodlogo #5
 // classCode gesen field nemeh function bich
 // eg: addClassCodeToStudents(students,"3A") => [{name: "boldo",age: 3,grade: 11,gender: "male",balance: 1231,classCode:"3A"},...]
+ const addClassCodeToStudents = (students, classCode) => {
+  let newStudents = students.map((student) => {
+    return {
+      name: student.name,
+      age: student.age,
+      grade: student.grade,
+      gender: student.gender,
+      balance: student.balance,
+      classCode: student.classCode 
+    }
+  });
+  newStudents.forEach((student) => {
+    student.classCode = classCode;
+  });
+  return newStudents;
+};
+console.log("bodlogo5", addClassCodeToStudents(students, "3A"))
+
+
+
 // bodlogo #6
 // removeGenders from student array function bich
+
+const removeGenders = (students) => {
+  let newStudents = students.map((student) => {
+    return {
+      name: student.name,
+      age: student.age,
+      grade: student.grade,
+      balance: student.balance,
+    };
+  });
+  return newStudents;
+}
+console.log("bodlogo6", removeGenders(students));

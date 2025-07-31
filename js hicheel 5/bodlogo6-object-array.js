@@ -1,8 +1,3 @@
-// let student = {
-//   name: "boldoo",
-//   age: 20,
-//   grade: 90,
-// };
 
 // array of numbers
 let grades = [10, 20, 30, 100];

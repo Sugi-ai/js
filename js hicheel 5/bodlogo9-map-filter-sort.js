@@ -190,7 +190,7 @@ const letStudentGradeAVG = (students) => {
 };
 console.log("Bodlogo8", letStudentGradeAVG(students));
 
-// Бодлого 8
+// Бодлого 9
 // hichneen suragch nasand hursen hed n hureeguig toolj object butsaa
 
 const countAdultStudents = (students) => {

@@ -79,7 +79,7 @@ function getDiscountedProducts(products) {
 
 // 2. Нөөц дууссан (stock === 0) бүтээгдэхүүнүүдийг буцаадаг функц бич.
 function getOutOfStockProducts(products) {
-  // ...
+
 }
 
 // 3. Үнэ нь 1 сая төгрөгөөс дээш бүтээгдэхүүнүүдийг буцаадаг функц бич.
