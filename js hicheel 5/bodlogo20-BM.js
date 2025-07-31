@@ -63,46 +63,56 @@ let data = [
 ];
 
 // 1. Хямдралтай бүтээгдэхүүнүүдийг шүүж буцаадаг функц бич.
-function getDiscountedProducts(products) {
-  products.filter((product) => {
-    return product.isDiscounted === true;
-  });
-  console.log(products);
-  return products.filter((product) => product.isDiscounted);
-  
-}
-
-
-
-
-
+const getDiscountedProducts = (products) => {
+  const discountedProducts = products.filter(
+    (product) => product.isDiscounted === true
+  );
+  return discountedProducts;
+};
+console.log("Bodlogo1", getDiscountedProducts(data));
 
 // 2. Нөөц дууссан (stock === 0) бүтээгдэхүүнүүдийг буцаадаг функц бич.
-function getOutOfStockProducts(products) {
-
-}
+const getOutOfStockProducts = (products) => {
+  const outOfStockProducts = products.filter((product) => product.stock === 0);
+  return outOfStockProducts;
+};
+console.log("Bodlogo2", getOutOfStockProducts(data));
 
 // 3. Үнэ нь 1 сая төгрөгөөс дээш бүтээгдэхүүнүүдийг буцаадаг функц бич.
-function getExpensiveProducts(products) {
-  // ...
-}
+const getExpensiveProducts = (products) => {
+  let expensiveProducts = products.filter((product) => product.price > 1000000);
+  return expensiveProducts;
+};
+console.log("Bodlogo3", getExpensiveProducts(data));
 
 // 4. "Computers" категорийн бүтээгдэхүүнүүдийг буцаадаг функц бич.
-function getComputers(products) {
-  // ...
-}
+const getComputers = (products) => {
+  const computers = products.filter(
+    (product) => product.category === "Computers"
+  );
+  return computers;
+};
+console.log("Bodlogo4", getComputers(data));
 
 // 5. Тухайн брэндийн нэрээр бүтээгдэхүүнүүдийг шүүдэг функц бич.
-function filterByBrand(products, brandName) {
-  // ...
-}
+const filterByBrand = (products, brand) => {
+  const byBrand = products.filter((product) => product.brand == brand);
+  return byBrand;
+};
+console.log("Bodlogo5", filterByBrand(data, "Apple"));
 
 // 6. Бүх бүтээгдэхүүн дээр `isHeavy: true/false` гэсэн талбар нэмдэг функц бич (жин 1 кг-аас их бол).
-function addIsHeavyFlag(products) {
-  // ...
-  
-}
-    // 7. Бүх бүтээгдэхүүний үнэд 10% нэмдэг функц бич.
+const addIsHeavyFlag = (products) => {
+  const isHeavyFlag = products.map((product) => {
+    return {
+      ...product,
+      isHeavy: product.weight > 1,
+    };
+  });
+  return isHeavyFlag;
+};
+console.log("Bodlogo7", addIsHeavyFlag(data));
+// 7. Бүх бүтээгдэхүүний үнэд 10% нэмдэг функц бич.
 function increasePriceByTenPercent(products) {
   // ...
 }
