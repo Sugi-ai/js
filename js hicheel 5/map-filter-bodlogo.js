@@ -41,7 +41,7 @@ let students = [
 
   {
     name: "nawchaa",
-    age: 13,
+    age: 19,
     grade: 14,
     balance: 211,
     gender: "male",
@@ -97,7 +97,7 @@ console.log("Bodlogo1", minGrade1(students));
 // Нас нь 18-аас доош бүх сурагчдыг шинэ массив(array) болгон ялгаж буцаадаг функц бич.
 
 let minorStudents = (students) => {
-  let nasandHureegui = [0];
+  let nasandHureegui = [];
   students.filter((student) => {
     if (student.age < 18) {
       nasandHureegui.push(student);
@@ -119,11 +119,10 @@ let sumGrades = (students) => {
 };
 console.log("Bodlogo3", sumGrades(students));
 
-
 // Бодлого 4
 // Өгөгдсөн нэртэй (name) бүх сурагчдыг буцаадаг функц бич. Жишээ нь: findStudentsByName(students, "boldo").
 const findStudentsByName = (students, purew) => {
-  let result = [0];
+  let result = [];
   students.forEach((student) => {
     if (student.name === purew) {
       result.push(student);
@@ -133,8 +132,6 @@ const findStudentsByName = (students, purew) => {
 };
 console.log("Bodlogo4", findStudentsByName(students, "purew"));
 
-
-
 // Бодлого 5
 // Бүх сурагчдыг онооны дарааллаар ихээс бага руу эрэмбэлдэг функц бич. (sort ашиглах)
 
@@ -142,8 +139,6 @@ let sortStudentsByGrade = (students) => {
   return students.sort((a, b) => b.grade - a.grade);
 };
 console.log("Bodlogo5", sortStudentsByGrade(students));
-
-
 
 // Бодлого 6
 // balance нь 10000-аас их сурагчдыг richStudents гэж нэрлээд, зөвхөн нэр болон балансын мэдээлэлтэйгээр шинэ массив үүсгэж буцаа.
@@ -159,24 +154,57 @@ let richStudents = (students) => {
 };
 console.log("Bodlogo6", richStudents(students));
 
-
-
-
 // Бодлого 7
 // Нэр бүрээр хэчнээн сурагч байгаа тоог тоолж, дараах хэлбэртэй объект буцаа:
 // { boldo: 3, dorjo: 1, bataa: 1 }
 const countStudentsByName = (students) => {
-  let nameCount =[0]}
-students.filter((student) => {
+  let nameCount = [];
+  students.filter((student) => {
     if (nameCount[student.name]) {
       nameCount[student.name]++;
+      nameCount.push(student);
     } else {
       nameCount[student.name] = 1;
     }
   });
-return nameCount
-  console.log("Bodlogo7", countStudentsByName(students));
+  return nameCount;
+};
+console.log("Bodlogo7", countStudentsByName(students));
+
 // Бодлого 8
-// Сурагчдын gender тус бүрээр онооны дундаж хэд байгааг тооцоолж буцаадаг функц бич.
+// Сурагчдын gender тус бүрээр хэд байгааг тооцоолж буцаадаг функц бич.
 // Жишээ:
-// { male: 30, female: 60 }
+//
+const letStudentGradeAVG = (students) => {
+  let maleCount = 0;
+  let femaleCount = 0;
+  students.filter((student) => {
+    if (student.gender == "male") {
+      maleCount++;
+    } else {
+      femaleCount++;
+    }
+  });
+
+  return { male: maleCount, female: femaleCount };
+};
+console.log("Bodlogo8", letStudentGradeAVG(students));
+
+// Бодлого 8
+// hichneen suragch nasand hursen hed n hureeguig toolj object butsaa
+
+const countAdultStudents = (students) => {
+  let adultCount = 0;
+  let minorCount = 0;
+
+  students.filter((student) => {
+    if (student.age >= 18) {
+      adultCount++;
+    } else {
+      minorCount++;
+    }
+  });
+
+  return { adult: adultCount, minor: minorCount };
+};
+console.log("Bodlogo9", countAdultStudents(students));

@@ -14,6 +14,13 @@ console.log(duu);
 
 let students = [
   {
+    name: "gocho",
+    age: 9,
+    grade: 55,
+    gender: "female",
+    balance: 18,
+  },
+  {
     name: "boldo",
     age: 3,
     grade: 11,
@@ -37,7 +44,7 @@ let students = [
   {
     name: "dulma",
     age: 9,
-    grade: 11, 
+    grade: 11,
     gender: "female",
     balance: 12,
   },
@@ -61,8 +68,8 @@ console.log(newStudents);
 const filtered = ages.filter((age) => {
   return age % 2 == 0;
 });
-console.log("filter1",ages);
-console.log("filter2",filtered);
+console.log("filter1", ages);
+console.log("filter2", filtered);
 
 // sort method
 // sort method function avna
@@ -99,13 +106,53 @@ console.log(students);
 
 // Bodlogo #1
 // nasand hursen suragchiig filterlej oloh function bich
+
+const adultStudents = (students) => {
+  let ah = students.filter((student) => {
+    if (student.age >= 18) {
+      return true;
+    } else {
+      return false;
+    }
+  });
+
+  return ah;
+};
+console.log("Bodlogo1", adultStudents(students));
+
 // Bodlogo #2
 // gender ogonguut tuhain gendereer filterlej ogoh function bich
 // eg: filterByGender(students,"male") => zovhon erchuudiig yalgaj ogno
+
+const filterByGender = (students, gender) => {
+  let duu = students.filter((student) => {
+    if (student.gender == gender) {
+      return true;
+    } else {
+      return false;
+    }
+  });
+
+  return duu;
+};
+console.log("Bodlogo2", filterByGender(students, "female"));
+
 // Bodlogo #3
 // nasaar n sortloh function bich
+const sortAgeStudents = (students) => {
+  let sortAge = students.sort((student2, student1) => {
+    return student2.age - student1.age;
+  });
+  return sortAge;
+};
+
+console.log("Bodlogo3", sortAgeStudents(students));
+
 // Bodlogo #4
 // neg too ogonguut tuhain toonoos ih balanactei surgchdiig yalgaj ogoh function bich
+const filterByBalance = (students) => {
+  let;
+};
 // bodlogo #5
 // classCode gesen field nemeh function bich
 // eg: addClassCodeToStudents(students,"3A") => [{name: "boldo",age: 3,grade: 11,gender: "male",balance: 1231,classCode:"3A"},...]

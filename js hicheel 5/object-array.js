@@ -114,10 +114,10 @@ console.log("bodlogo5", eregteiSuragch);
 
 function findFemaleStudent(arr) {
   let femaleStudent = 0;
+
   for (i = 0; i < arr.length; i++) {
     if (arr[i].gender === "female") {
       femaleStudent++;
-      sum = sum/ arr.length. * 100;
     }
   }
   let percent = (femaleStudent / arr.length) * 100;
@@ -125,5 +125,3 @@ function findFemaleStudent(arr) {
 }
 let percentFemaleStudent = findFemaleStudent(students);
 console.log("bodlogo6", percentFemaleStudent);
-
-
