@@ -142,11 +142,27 @@ const getLowMileageCars = (cars) => {
 console.log("Bodlogo9", getLowMileageCars(cars));
 
 // 10. Хамгийн бага түлш зарцуулалттай машиныг буцаадаг функц бич.
-const getMostEfficientCar = (cars) => {};
+const getMostEfficientCar = (cars) => {
+  let min = cars[0];
+  cars.filter((car) => {
+    if (car.fuelEfficiency < min.fuelEfficiency) {
+      min = car;
+    }
+  });
+  return min;
+};
 console.log("Bodlogo10", getMostEfficientCar(cars));
 
 // 11. Хамгийн өндөр үнэтэй машиныг буцаадаг функц бич.
-const getMostExpensiveCar = (cars) => {};
+const getMostExpensiveCar = (cars) => {
+  let une = cars[0];
+  cars.filter((car) => {
+    if (car.price > une.price) {
+      une = car;
+    }
+  });
+  return une;
+};
 console.log("Bodlogo11", getMostExpensiveCar(cars));
 
 // 12. Бүх машины нийлбэр mileage-г буцаадаг функц бич.
@@ -167,9 +183,14 @@ const filterBySupplier = (cars, supplierName) => {
 console.log("Bodlogo13", filterBySupplier(cars, "AutoJapan"));
 
 // 14. Машины model нэрсийг массив болгож буцаадаг функц бич.
-function getCarModels(cars) {
-  // ...
-}
+const getCarModels = (cars) => {
+  const carModels = cars.map((car) => {
+    return car.model;
+  });
+  return carModels;
+};
+console.log("bodlogo14", getCarModels(cars));
+
 // 15. Машинуудыг үнийн өсөхөөр эрэмбэлж буцаадаг функц бич.
 const sortByPriceAscending = (cars) => {
   const priceAsceding = cars.sort((a, b) => b.price - a.price);

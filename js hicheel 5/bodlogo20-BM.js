@@ -39,7 +39,7 @@ let data = [
   {
     name: "Mouse Logitech M590",
     category: "Accessories",
-    price: 85000,
+    price: 5000,
     stock: 20,
     brand: "Logitech",
     rating: 4.3,
@@ -113,71 +113,154 @@ const addIsHeavyFlag = (products) => {
 };
 console.log("Bodlogo7", addIsHeavyFlag(data));
 // 7. Бүх бүтээгдэхүүний үнэд 10% нэмдэг функц бич.
-function increasePriceByTenPercent(products) {
-  // ...
-}
+const increasePriceByTenPercent = (products) => {
+  const priceByTenPercent = products.map((product) => {
+    return {
+      ...product,
+      price: product.price * 1.1,
+    };
+  });
+  return priceByTenPercent;
+};
+console.log("bodlogo7", increasePriceByTenPercent(data));
 
 // 8. Хямдралын дараах үнэтэй `finalPrice` талбарыг тооцож нэмдэг функц бич.
-function addFinalPrice(products) {
-  // ...
-}
+const addFinalPrice = (products) => {
+  const getFinalPrice = products.map((product) => {
+    const discFinalPrice =
+      product.price - (product.price / 100) * product.discountPercent;
+    return {
+      ...product,
+      finalPrice: (product.finalPrice = discFinalPrice),
+    };
+  });
+  return getFinalPrice;
+};
+console.log("Bodlogo8", addFinalPrice(data));
 
 // 9. Үнэлгээ хамгийн өндөртэй бүтээгдэхүүнийг буцаадаг функц бич.
-function getTopRatedProduct(products) {
-  // ...
-}
+
+const getTopRatedProduct = (products) => {
+  let max = products[0];
+  products.filter((product) => {
+    if (product.rating > max.rating) {
+      max = product;
+    }
+  });
+  return max;
+};
+console.log("Bodlogo9", getTopRatedProduct(data));
 
 // 10. Үнэ хамгийн бага бүтээгдэхүүнийг буцаадаг функц бич.
-function getCheapestProduct(products) {
-  // ...
-}
+const getCheapestProduct = (products) => {
+  let min = products[0];
+  products.filter((product) => {
+    if (product.price < min.price) {
+      min = product;
+    }
+  });
+  return min;
+};
+console.log("Bodlogo10", getCheapestProduct(data));
 
 // 11. Бүх бүтээгдэхүүний нийт нөөц (stock)-ийг тооцдог функц бич.
-function getTotalStock(products) {
-  // ...
-}
+const getTotalStock = (products) => {
+  let total = 0;
+  products.forEach((product) => {
+    total += product.stock;
+  });
+  return total;
+};
+console.log("bodlogo11", getTotalStock(data));
 
 // 12. Бүх бүтээгдэхүүний нийлбэр үнийг тооцдог функц бич.
-function getTotalPrice(products) {
-  // ...
-}
-
+const getTotalPrice = (products) => {
+  let total = 0;
+  products.forEach((product) => {
+    total += product.price;
+  });
+  return total;
+};
+console.log("Bodlogo12", getTotalPrice(data));
+//  products.filter(()=>{})
 // 13. Тухайн supplier-аар шүүж бүтээгдэхүүнүүдийг буцаадаг функц бич.
-function filterBySupplier(products, supplierName) {
-  // ...
-}
+const filterBySupplier = (products, supplierName) => {
+  const bySuppliere = products.filter((product) => {
+    return product.supplier === supplierName;
+  });
+  return bySuppliere;
+};
+console.log("Bodlogo13", filterBySupplier(data, "PCMall"));
 
 // 14. Бүх бүтээгдэхүүний нэрсийг массив болгон буцаадаг функц бич.
-function getProductNames(products) {
-  // ...
-}
+const getProductNames = (products) => {
+  const productNames = products.map((product) => {
+    return product.name;
+  });
+  return productNames;
+};
+console.log("Bodlgo14", getProductNames(data));
 
 // 15. Бүтээгдэхүүнүүдийг үнээр нь өсөхөөр эрэмбэлж буцаадаг функц бич.
-function sortByPriceAscending(products) {
-  // ...
-}
+const sortByPriceAscending = (products) => {
+  const byPriceAscending = products.sort((a, b) => b.price - a.price);
+  return byPriceAscending;
+};
+console.log("Bodlogo15", sortByPriceAscending(data));
 
 // 16. Нөөц багатай (≤ 5) бүтээгдэхүүнүүдийг шүүж буцаадаг функц бич.
-function getLowStockProducts(products) {
-  // ...
-}
+const getLowStockProducts = (products) => {
+  const lowStockProducts = products.filter((product) => {
+    return product.stock < 5;
+  });
+  return lowStockProducts;
+};
+console.log("Bodlogo16", getLowStockProducts(data));
 
 // 17. Давхардалгүй нийлүүлэгчийн нэрсийн массив буцаадаг функц бич.
 function getUniqueSuppliers(products) {
-  // ...
+  let arrSuppliers = products.map((product) => {
+    return product.supplier;
+  });
+  let uniqueSuppliers = [];
+  arrSuppliers.forEach((supplier) => {
+    if (uniqueSuppliers.includes(supplier)) {
+    } else {
+      uniqueSuppliers.push(supplier);
+    }
+  });
+  return uniqueSuppliers;
 }
+const resultUniqueSuppliers = getUniqueSuppliers(data);
+console.log("Array Of Unique Suppliers", resultUniqueSuppliers);
 
 // 18. Зөвхөн name ба price талбартай шинэ массив үүсгэдэг функц бич.
-function getNameAndPriceList(products) {
-  // ...
-}
-
+const getNameAndPriceList = (products) => {
+  const nameAndPriceList = products.map((product) => {
+    return {
+      name: product.name,
+      price: product.price,
+    };
+  });
+  return nameAndPriceList;
+};
+console.log("Bodlogo18", getNameAndPriceList(data));
 // 19. Үнэлгээ нь 4.5-аас их бүх бүтээгдэхүүнүүдийг буцаадаг функц бич.
-function getHighlyRatedProducts(products) {
-  // ...
-}
-
+const getHighlyRatedProducts = (products) => {
+  const highlyRatedProducts = products.filter(
+    (product) => product.rating > 4.5
+  );
+  return highlyRatedProducts;
+};
+console.log("Bodlogo19", getHighlyRatedProducts(data));
 // 20. Бүх бүтээгдэхүүнд `id` талбар нэмж өгдөг функц бич (жишээ нь 1, 2, 3...).
-function addIdToProducts(products) {
-  // ...
-}
+const addIdToProducts = (products) => {
+  const idProducts = products.map((product, index) => {
+    return {
+      ...product,
+      id: index + 1,
+    };
+  });
+  return idProducts;
+};
+console.log("Bodlogo20", addIdToProducts(data));
